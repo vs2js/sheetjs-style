@@ -26,6 +26,9 @@ ws["A1"].s = {									// set the style for target cell
 ```
 ![单元格设置样式](./imgs/1.png)
 
+## Style Examples
+ https://github.com/protobi/js-xlsx#cell-styles
+ 
 ## Thanks
 [sheetjs](https://github.com/SheetJS/sheetjs)
 [js-xlsx](https://github.com/protobi/js-xlsx)
