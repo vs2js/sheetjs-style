@@ -172,7 +172,7 @@ function xlml_normalize(d)/*:string*/ {
 
 /* TODO: Everything */
 /* UOS uses CJK in tags */
-var xlmlregex = /<(\/?)([^\s?>!\/:]*:|)([^\s?>:\/]+)[^>]*>/mg;
+var xlmlregex = /<(\/?)([^\s?><!\/:]*:|)([^\s?<>:\/]+)(?:[\s?:\/][^>]*)?>/mg;
 //var xlmlregex = /<(\/?)([a-z0-9]*:|)(\w+)[^>]*>/mg;
 function parse_xlml_xml(d, _opts)/*:Workbook*/ {
 	var opts = _opts || {};
@@ -611,6 +611,8 @@ function parse_xlml_xml(d, _opts)/*:Workbook*/ {
 					case 'donotdisplaygridlines' /*case 'DoNotDisplayGridlines'*/:
 						break;
 
+					case 'activerow' /*case 'ActiveRow'*/: break;
+					case 'activecol' /*case 'ActiveCol'*/: break;
 					case 'toprowbottompane' /*case 'TopRowBottomPane'*/: break;
 					case 'leftcolumnrightpane' /*case 'LeftColumnRightPane'*/: break;
 
@@ -630,8 +632,6 @@ function parse_xlml_xml(d, _opts)/*:Workbook*/ {
 					case 'horizontalresolution' /*case 'HorizontalResolution'*/: break;
 					case 'verticalresolution' /*case 'VerticalResolution'*/: break;
 					case 'numberofcopies' /*case 'NumberofCopies'*/: break;
-					case 'activerow' /*case 'ActiveRow'*/: break;
-					case 'activecol' /*case 'ActiveCol'*/: break;
 					case 'activepane' /*case 'ActivePane'*/: break;
 					case 'toprowvisible' /*case 'TopRowVisible'*/: break;
 					case 'leftcolumnvisible' /*case 'LeftColumnVisible'*/: break;
