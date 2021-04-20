@@ -553,6 +553,12 @@ export interface Hyperlink {
     Tooltip?: string;
 }
 
+type COLOR_SPEC = { auto: 1 } | {
+    /** specifying a hex ARGB value (AARRGGBB) */
+    rgb: string;
+} | { theme: "1", tint: "-0.25" } | { indexed: 64 };
+type BORDER_STYLE = 'thin' | 'medium' | 'thick' | 'dotted' | 'hair' | 'dashed' | 'mediumDashed' | 'dashDot' | 'mediumDashDot' | 'dashDotDot' | 'mediumDashDotDot' | 'slantDashDot';
+
 /** Worksheet Cell Object */
 export interface CellObject {
     /** The raw value of the cell.  Can be omitted if a formula is specified */
@@ -589,7 +595,52 @@ export interface CellObject {
     l?: Hyperlink;
 
     /** The style/theme of the cell (if applicable) */
-    s?: any;
+    s?: {
+        fill?: {
+            patternType?: 'solid' | 'none';
+            fgColor?: COLOR_SPEC;
+            bgColor?: COLOR_SPEC;
+        };
+        font?: {
+            name?: string;
+            /** Font size in points (ex.: "11") */
+            sz?: string;
+            color?: COLOR_SPEC;
+            bold?: boolean;
+            underline?: boolean;
+            italic?: boolean;
+            strike?: boolean;
+            outline?: boolean;
+            shadow?: boolean;
+            vertAlign?: boolean;
+        };
+        /**
+         * Formating of number. Some examples: (see StyleBuilder.SSF property for more)
+         * "0"
+         * "0.00%"
+         * "0.0%"
+         * "0.00%;\\(0.00%\\);\\-;@"
+         * "m/dd/yy"
+         */
+        numFmt?: string;
+        alignment?: {
+            vertical?: 'bottom' | 'center' | 'top';
+            horizontal?: 'left' | 'center' | 'right';
+            wrapText?: boolean;
+            /** 2 is "right-to-left" */
+            readingOrder?: number;
+            /** 0-180 or 255 */
+            textRotation?: number;
+        };
+        border?: {
+            top?: { style: BORDER_STYLE, color: COLOR_SPEC };
+            bottom?: { style: BORDER_STYLE, color: COLOR_SPEC };
+            left?: { style: BORDER_STYLE, color: COLOR_SPEC };
+            right?: { style: BORDER_STYLE, color: COLOR_SPEC };
+            diagonalUp?: boolean;
+            diagonalDown?: boolean;
+        };
+    };
 }
 
 /** Simple Cell Address */
