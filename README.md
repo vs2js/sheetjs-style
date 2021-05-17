@@ -1,8 +1,15 @@
-
-# Sheetjs-style
-support set cell style for sheetjs!
-API is the same as sheetjs!
-
+<h1 align='center'>Sheetjs-style</h1>
+<p align='center'>
+  <a href="https://travis-ci.com/Yoshino-UI/Yoshino/">
+    <img src="https://travis-ci.com/Yoshino-UI/Yoshino.svg" alt="travis ci badge">
+  </a>
+  <img src='https://img.shields.io/npm/v/sheetjs-style.svg?style=flat-square' alt="version">
+  <img src='https://img.shields.io/npm/l/sheetjs-style.svg' alt="license">
+  <img src='https://img.shields.io/npm/dt/sheetjs-style.svg?style=flat-square' alt="downloads">
+  <img src='https://img.shields.io/npm/dm/sheetjs-style.svg?style=flat-square' alt="downloads-month">
+</p>
+<p align='center'>support set cell style for sheetjs!</p>
+<p align='center'>API is the same as sheetjs!</p>
 
 ## install
 ```
