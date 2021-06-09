@@ -631,6 +631,7 @@ export interface CellObject {
             readingOrder?: number;
             /** 0-180 or 255 */
             textRotation?: number;
+            indent?: number;
         };
         border?: {
             top?: { style: BORDER_STYLE, color: COLOR_SPEC };
