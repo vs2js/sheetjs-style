@@ -22,6 +22,9 @@ Please read [SheetJs Documents](https://github.com/SheetJS/sheetjs/blob/34683954
 ## How to set cell Style?
 for example:
 ```js
+import * as XLSX from 'sheetjs-style';
+
+....
 ws["A1"].s = {									// set the style for target cell
   font: {
     name: '宋体',
@@ -30,6 +33,7 @@ ws["A1"].s = {									// set the style for target cell
     color: { rgb: "FFFFAA00" }
   },
 };
+...
 ```
 ![单元格设置样式](./imgs/1.png)
 
