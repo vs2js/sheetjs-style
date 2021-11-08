@@ -22,18 +22,30 @@ Please read [SheetJs Documents](https://github.com/SheetJS/sheetjs/blob/34683954
 ## How to set cell Style?
 for example:
 ```js
-import * as XLSX from 'sheetjs-style';
+const XLSX = require('sheetjs-style');
+const wb = XLSX.utils.book_new();
+const ws = XLSX.utils.json_to_sheet([{
+  0: 0,
+  1: 1,
+  2: 2
+}], {
+  header: ['0', '1', '2'],
+});
 
-....
-ws["A1"].s = {									// set the style for target cell
+ws["A1"].s = { // set the style for target cell
   font: {
     name: '宋体',
     sz: 24,
     bold: true,
-    color: { rgb: "FFFFAA00" }
+    color: {
+      rgb: "FFFFAA00"
+    }
   },
 };
-...
+
+XLSX.utils.book_append_sheet(wb, ws, 'sheet1'); // add worksheet to workbook
+
+XLSX.writeFile(wb, 'test.xlsx'); // write workbook
 ```
 ![单元格设置样式](./imgs/1.png)
 
